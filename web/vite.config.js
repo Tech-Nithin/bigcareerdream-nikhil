@@ -14,7 +14,7 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: isVercel ? '../../../public' : 'dist',
+    outDir: 'dist',
     emptyOutDir: true,
     sourcemap: false,
   },
