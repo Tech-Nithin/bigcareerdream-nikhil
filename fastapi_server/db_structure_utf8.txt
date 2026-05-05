@@ -1,0 +1,202 @@
+﻿Connected to Neon!
+
+Tables found: ['greenhouse_lever_jobs', 'jobs', 'dice_jobs', 'greenhouse_lever_jobs_old', 'leads', 'linkedin_jobs', 'scraper_progress_repo1', 'scraper_progress_repo2', 'users', 'transactions']
+
+--- Structure for table: greenhouse_lever_jobs ---
+Col: id | Type: bigint | Null: NO | Default: nextval('greenhouse_lever_jobs_id_seq1'::regclass)
+Col: greenhouse_internal_job_id | Type: text | Null: YES | Default: None
+Col: job_url | Type: text | Null: YES | Default: None
+Col: job_title | Type: text | Null: YES | Default: None
+Col: company_name | Type: text | Null: YES | Default: None
+Col: company_logo_url | Type: text | Null: YES | Default: None
+Col: location_city | Type: text | Null: YES | Default: None
+Col: location_country | Type: text | Null: YES | Default: None
+Col: is_remote | Type: boolean | Null: YES | Default: false
+Col: workplace_type | Type: text | Null: YES | Default: None
+Col: posted_at | Type: timestamp without time zone | Null: YES | Default: None
+Col: salary_text | Type: text | Null: YES | Default: None
+Col: salary_min | Type: numeric | Null: YES | Default: None
+Col: salary_max | Type: numeric | Null: YES | Default: None
+Col: salary_currency | Type: text | Null: YES | Default: None
+Col: salary_interval | Type: text | Null: YES | Default: None
+Col: experience_text | Type: text | Null: YES | Default: None
+Col: experience_min | Type: numeric | Null: YES | Default: None
+Col: experience_max | Type: numeric | Null: YES | Default: None
+Col: skills | Type: ARRAY | Null: YES | Default: None
+Col: description_plain | Type: text | Null: YES | Default: None
+Col: platform | Type: text | Null: NO | Default: None
+Col: platform_job_id | Type: text | Null: YES | Default: None
+Col: requisition_id | Type: text | Null: YES | Default: None
+Col: location_full | Type: text | Null: YES | Default: None
+Col: location_state | Type: text | Null: YES | Default: None
+Col: updated_at | Type: timestamp without time zone | Null: YES | Default: None
+Col: scraped_at | Type: timestamp without time zone | Null: YES | Default: now()
+Col: description_html | Type: text | Null: YES | Default: None
+Col: work_authorization | Type: text | Null: YES | Default: None
+Col: work_auth_keywords | Type: ARRAY | Null: YES | Default: None
+Col: greenhouse_language | Type: text | Null: YES | Default: None
+Col: greenhouse_departments | Type: jsonb | Null: YES | Default: None
+Col: greenhouse_offices | Type: jsonb | Null: YES | Default: None
+Col: greenhouse_metadata | Type: jsonb | Null: YES | Default: None
+Col: raw_data | Type: jsonb | Null: YES | Default: None
+Col: processing_version | Type: text | Null: YES | Default: None
+Col: created_at | Type: timestamp without time zone | Null: YES | Default: now()
+Col: db_updated_at | Type: timestamp without time zone | Null: YES | Default: now()
+Col: location_display | Type: text | Null: YES | Default: None
+Col: tech_stack | Type: text | Null: YES | Default: None
+
+--- Structure for table: jobs ---
+Col: id | Type: bigint | Null: NO | Default: nextval('jobs_id_seq'::regclass)
+Col: company | Type: text | Null: YES | Default: None
+Col: platform | Type: text | Null: YES | Default: None
+Col: job_title | Type: text | Null: YES | Default: None
+Col: location | Type: text | Null: YES | Default: None
+Col: job_link | Type: text | Null: YES | Default: None
+Col: external_link | Type: text | Null: YES | Default: None
+Col: description | Type: text | Null: YES | Default: None
+Col: salary | Type: text | Null: YES | Default: None
+Col: experience | Type: text | Null: YES | Default: None
+Col: h1b | Type: text | Null: YES | Default: None
+Col: scraped_at | Type: timestamp without time zone | Null: YES | Default: now()
+
+--- Structure for table: dice_jobs ---
+Col: id | Type: bigint | Null: NO | Default: nextval('dice_jobs_id_seq'::regclass)
+Col: job_id | Type: text | Null: NO | Default: None
+Col: title | Type: text | Null: YES | Default: None
+Col: company | Type: text | Null: YES | Default: None
+Col: company_image_url | Type: text | Null: YES | Default: None
+Col: location_city | Type: text | Null: YES | Default: None
+Col: location_state | Type: text | Null: YES | Default: None
+Col: location_country | Type: text | Null: YES | Default: None
+Col: is_remote | Type: boolean | Null: YES | Default: false
+Col: job_type | Type: text | Null: YES | Default: None
+Col: employment_type | Type: text | Null: YES | Default: None
+Col: w2_c2c_type | Type: text | Null: YES | Default: None
+Col: date_posted | Type: text | Null: YES | Default: None
+Col: scraped_at | Type: timestamp with time zone | Null: YES | Default: now()
+Col: salary | Type: text | Null: YES | Default: None
+Col: salary_min | Type: numeric | Null: YES | Default: None
+Col: salary_max | Type: numeric | Null: YES | Default: None
+Col: salary_interval | Type: text | Null: YES | Default: None
+Col: experience | Type: text | Null: YES | Default: None
+Col: job_url_dice | Type: text | Null: YES | Default: None
+Col: job_url_external | Type: text | Null: YES | Default: None
+Col: skills | Type: text | Null: YES | Default: None
+Col: description | Type: text | Null: YES | Default: None
+Col: work_location | Type: text | Null: YES | Default: None
+
+--- Structure for table: greenhouse_lever_jobs_old ---
+Col: id | Type: bigint | Null: NO | Default: nextval('greenhouse_lever_jobs_id_seq'::regclass)
+Col: platform | Type: text | Null: NO | Default: None
+Col: platform_job_id | Type: text | Null: YES | Default: None
+Col: company_name | Type: text | Null: YES | Default: None
+Col: job_title | Type: text | Null: YES | Default: None
+Col: workplace_type | Type: text | Null: YES | Default: None
+Col: requisition_id | Type: text | Null: YES | Default: None
+Col: location_full | Type: text | Null: YES | Default: None
+Col: location_city | Type: text | Null: YES | Default: None
+Col: location_state | Type: text | Null: YES | Default: None
+Col: location_country | Type: text | Null: YES | Default: None
+Col: is_remote | Type: boolean | Null: YES | Default: false
+Col: posted_at | Type: timestamp without time zone | Null: YES | Default: None
+Col: updated_at | Type: timestamp without time zone | Null: YES | Default: None
+Col: scraped_at | Type: timestamp without time zone | Null: YES | Default: now()
+Col: job_url | Type: text | Null: YES | Default: None
+Col: description_html | Type: text | Null: YES | Default: None
+Col: description_plain | Type: text | Null: YES | Default: None
+Col: salary_text | Type: text | Null: YES | Default: None
+Col: salary_min | Type: numeric | Null: YES | Default: None
+Col: salary_max | Type: numeric | Null: YES | Default: None
+Col: salary_currency | Type: text | Null: YES | Default: None
+Col: salary_interval | Type: text | Null: YES | Default: None
+Col: experience_text | Type: text | Null: YES | Default: None
+Col: experience_min | Type: numeric | Null: YES | Default: None
+Col: experience_max | Type: numeric | Null: YES | Default: None
+Col: skills | Type: ARRAY | Null: YES | Default: None
+Col: work_authorization | Type: text | Null: YES | Default: None
+Col: work_auth_keywords | Type: ARRAY | Null: YES | Default: None
+Col: greenhouse_internal_job_id | Type: text | Null: YES | Default: None
+Col: greenhouse_language | Type: text | Null: YES | Default: None
+Col: greenhouse_departments | Type: jsonb | Null: YES | Default: None
+Col: greenhouse_offices | Type: jsonb | Null: YES | Default: None
+Col: greenhouse_metadata | Type: jsonb | Null: YES | Default: None
+Col: raw_data | Type: jsonb | Null: YES | Default: None
+Col: processing_version | Type: text | Null: YES | Default: None
+Col: created_at | Type: timestamp without time zone | Null: YES | Default: now()
+Col: db_updated_at | Type: timestamp without time zone | Null: YES | Default: now()
+Col: company_logo_url | Type: text | Null: YES | Default: None
+
+--- Structure for table: leads ---
+Col: id | Type: integer | Null: NO | Default: nextval('leads_id_seq'::regclass)
+Col: first_name | Type: text | Null: NO | Default: None
+Col: middle_name | Type: text | Null: YES | Default: None
+Col: last_name | Type: text | Null: NO | Default: None
+Col: email | Type: text | Null: NO | Default: None
+Col: phone | Type: text | Null: NO | Default: None
+Col: plan_name | Type: text | Null: NO | Default: None
+Col: price | Type: real | Null: NO | Default: None
+Col: verified_at | Type: timestamp with time zone | Null: YES | Default: CURRENT_TIMESTAMP
+Col: country_code | Type: text | Null: YES | Default: None
+
+--- Structure for table: linkedin_jobs ---
+Col: id | Type: bigint | Null: NO | Default: nextval('linkedin_jobs_id_seq'::regclass)
+Col: job_id | Type: text | Null: NO | Default: None
+Col: title | Type: text | Null: YES | Default: None
+Col: company_name | Type: text | Null: YES | Default: None
+Col: company_url | Type: text | Null: YES | Default: None
+Col: company_logo | Type: text | Null: YES | Default: None
+Col: location_city | Type: text | Null: YES | Default: None
+Col: location_state | Type: text | Null: YES | Default: None
+Col: location_country | Type: text | Null: YES | Default: None
+Col: location_display | Type: text | Null: YES | Default: None
+Col: description | Type: text | Null: YES | Default: None
+Col: date_posted | Type: date | Null: YES | Default: None
+Col: scraped_at | Type: timestamp with time zone | Null: YES | Default: now()
+Col: job_url | Type: text | Null: YES | Default: None
+Col: apply_url | Type: text | Null: YES | Default: None
+Col: job_type | Type: text | Null: YES | Default: None
+Col: job_level | Type: text | Null: YES | Default: None
+Col: company_industry | Type: text | Null: YES | Default: None
+Col: job_function | Type: text | Null: YES | Default: None
+Col: is_remote | Type: boolean | Null: YES | Default: false
+Col: is_easy_apply | Type: boolean | Null: YES | Default: false
+Col: compensation_min | Type: numeric | Null: YES | Default: None
+Col: compensation_max | Type: numeric | Null: YES | Default: None
+Col: compensation_currency | Type: text | Null: YES | Default: None
+Col: compensation_interval | Type: text | Null: YES | Default: None
+Col: emails | Type: text | Null: YES | Default: None
+Col: search_keyword | Type: text | Null: YES | Default: None
+Col: created_at | Type: timestamp with time zone | Null: YES | Default: now()
+Col: experience | Type: text | Null: YES | Default: None
+Col: salary_text | Type: text | Null: YES | Default: None
+
+--- Structure for table: scraper_progress_repo1 ---
+Col: id | Type: integer | Null: NO | Default: 1
+Col: last_index | Type: integer | Null: YES | Default: 0
+
+--- Structure for table: scraper_progress_repo2 ---
+Col: id | Type: integer | Null: NO | Default: 1
+Col: last_index | Type: integer | Null: YES | Default: 0
+
+--- Structure for table: users ---
+Col: id | Type: integer | Null: NO | Default: nextval('users_id_seq'::regclass)
+Col: email | Type: text | Null: NO | Default: None
+Col: password_hash | Type: text | Null: NO | Default: None
+Col: created_at | Type: timestamp with time zone | Null: YES | Default: CURRENT_TIMESTAMP
+
+--- Structure for table: transactions ---
+Col: id | Type: uuid | Null: NO | Default: gen_random_uuid()
+Col: order_id | Type: text | Null: NO | Default: None
+Col: email | Type: text | Null: YES | Default: None
+Col: phone_number | Type: text | Null: YES | Default: None
+Col: first_name | Type: text | Null: YES | Default: None
+Col: middle_name | Type: text | Null: YES | Default: None
+Col: last_name | Type: text | Null: YES | Default: None
+Col: plan_name | Type: text | Null: YES | Default: None
+Col: amount | Type: numeric | Null: YES | Default: None
+Col: currency | Type: text | Null: YES | Default: 'USD'::text
+Col: status | Type: text | Null: YES | Default: None
+Col: terms_accepted | Type: boolean | Null: YES | Default: true
+Col: paypal_details | Type: jsonb | Null: YES | Default: None
+Col: created_at | Type: timestamp with time zone | Null: YES | Default: now()
+Col: access_status | Type: text | Null: YES | Default: 'active'::text

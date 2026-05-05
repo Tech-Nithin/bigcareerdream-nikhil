@@ -1,0 +1,1250 @@
+{
+    "tickets": [
+        {
+            "name": "ticket_uuid",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "ticket_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": "generate_ticket_id()"
+        },
+        {
+            "name": "ticket_number",
+            "type": "bigint",
+            "nullable": "YES",
+            "default": "nextval('ticket_id_seq'::regclass)"
+        },
+        {
+            "name": "client_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "category",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "issue_description",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "picture_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "assigned_to",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "assigned_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "closed_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "service_response",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "ticket_status",
+            "type": "text",
+            "nullable": "YES",
+            "default": "'OPEN'::text"
+        }
+    ],
+    "feedback": [
+        {
+            "name": "feedback_uuid",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "feedback_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": "generate_feedback_id()"
+        },
+        {
+            "name": "feedback_number",
+            "type": "bigint",
+            "nullable": "YES",
+            "default": "nextval('feedback_id_seq'::regclass)"
+        },
+        {
+            "name": "client_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "category",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "custom_category",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "rating",
+            "type": "integer",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "feedback_description",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "image_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        }
+    ],
+    "greenhouse_lever_jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('greenhouse_lever_jobs_id_seq1'::regclass)"
+        },
+        {
+            "name": "greenhouse_internal_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_logo_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "workplace_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "posted_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "skills",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description_plain",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "platform",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "platform_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "requisition_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_full",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "description_html",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_authorization",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_auth_keywords",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_language",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_departments",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_offices",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_metadata",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "raw_data",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "processing_version",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "db_updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "location_display",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "tech_stack",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "company",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "platform",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_link",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "external_link",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "h1b",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        }
+    ],
+    "dice_jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('dice_jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "job_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_image_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "job_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "employment_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "w2_c2c_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "date_posted",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "salary",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_url_dice",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_url_external",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "skills",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_location",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "greenhouse_lever_jobs_old": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('greenhouse_lever_jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "platform",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "platform_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "workplace_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "requisition_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_full",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "posted_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "job_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description_html",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description_plain",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "skills",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_authorization",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_auth_keywords",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_internal_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_language",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_departments",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_offices",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_metadata",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "raw_data",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "processing_version",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "db_updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "company_logo_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "leads": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "nextval('leads_id_seq'::regclass)"
+        },
+        {
+            "name": "first_name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "middle_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "last_name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "phone",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "plan_name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "price",
+            "type": "real",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "verified_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "country_code",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "linkedin_jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('linkedin_jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "job_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_logo",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_display",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "date_posted",
+            "type": "date",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "job_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "apply_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_level",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_industry",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_function",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "is_easy_apply",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "compensation_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "compensation_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "compensation_currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "compensation_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "emails",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "search_keyword",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "experience",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "scraper_progress_repo1": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "1"
+        },
+        {
+            "name": "last_index",
+            "type": "integer",
+            "nullable": "YES",
+            "default": "0"
+        }
+    ],
+    "scraper_progress_repo2": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "1"
+        },
+        {
+            "name": "last_index",
+            "type": "integer",
+            "nullable": "YES",
+            "default": "0"
+        }
+    ],
+    "users": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "nextval('users_id_seq'::regclass)"
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "password_hash",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "CURRENT_TIMESTAMP"
+        }
+    ],
+    "transactions": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "order_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "phone_number",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "first_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "middle_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "last_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "plan_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "amount",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": "'USD'::text"
+        },
+        {
+            "name": "status",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "terms_accepted",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "true"
+        },
+        {
+            "name": "paypal_details",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "access_status",
+            "type": "text",
+            "nullable": "YES",
+            "default": "'active'::text"
+        }
+    ]
+}

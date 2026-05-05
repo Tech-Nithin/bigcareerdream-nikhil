@@ -1,0 +1,1 @@
+Public tables: ['tickets', 'feedback', 'clients', 'saved_jobs', 'applied_jobs', 'resumes_data', 'dice_job_links', 'jobs', 'dice_jobs', 'greenhouse_lever_jobs_old', 'greenhouse_lever_jobs', 'leads', 'linkedin_jobs', 'scraper_progress_repo1', 'scraper_progress_repo2', 'users', 'transactions']

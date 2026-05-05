@@ -1,0 +1,1570 @@
+{
+    "neon_auth.account": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "accountId",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "providerId",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "userId",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "accessToken",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "refreshToken",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "idToken",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "accessTokenExpiresAt",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "refreshTokenExpiresAt",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scope",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "password",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "updatedAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        }
+    ],
+    "public.greenhouse_lever_jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('greenhouse_lever_jobs_id_seq1'::regclass)"
+        },
+        {
+            "name": "greenhouse_internal_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_logo_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "workplace_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "posted_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "skills",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description_plain",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "platform",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "platform_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "requisition_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_full",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "description_html",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_authorization",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_auth_keywords",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_language",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_departments",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_offices",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_metadata",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "raw_data",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "processing_version",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "db_updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "location_display",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "tech_stack",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "public.jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "company",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "platform",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_link",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "external_link",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "h1b",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        }
+    ],
+    "neon_auth.user": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "emailVerified",
+            "type": "boolean",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "image",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "updatedAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "role",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "banned",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "banReason",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "banExpires",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "neon_auth.invitation": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "organizationId",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "role",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "status",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "expiresAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "inviterId",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": null
+        }
+    ],
+    "neon_auth.organization": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "slug",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "logo",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "metadata",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "neon_auth.member": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "organizationId",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "userId",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "role",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        }
+    ],
+    "neon_auth.session": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "expiresAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "token",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "updatedAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "ipAddress",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "userAgent",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "userId",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "impersonatedBy",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "activeOrganizationId",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "public.dice_jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('dice_jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "job_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_image_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "job_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "employment_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "w2_c2c_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "date_posted",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "salary",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_url_dice",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_url_external",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "skills",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_location",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "public.greenhouse_lever_jobs_old": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('greenhouse_lever_jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "platform",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "platform_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "workplace_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "requisition_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_full",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "posted_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "job_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description_html",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description_plain",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "experience_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "skills",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_authorization",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "work_auth_keywords",
+            "type": "ARRAY",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_internal_job_id",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_language",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_departments",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_offices",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "greenhouse_metadata",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "raw_data",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "processing_version",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "db_updated_at",
+            "type": "timestamp without time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "company_logo_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "neon_auth.jwks": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "publicKey",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "privateKey",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "expiresAt",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "neon_auth.project_config": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "endpoint_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "updated_at",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "trusted_origins",
+            "type": "jsonb",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "social_providers",
+            "type": "jsonb",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email_provider",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "email_and_password",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "allow_localhost",
+            "type": "boolean",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "plugin_configs",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "webhook_config",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "neon_auth.verification": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "identifier",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "value",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "expiresAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "createdAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "updatedAt",
+            "type": "timestamp with time zone",
+            "nullable": "NO",
+            "default": "CURRENT_TIMESTAMP"
+        }
+    ],
+    "public.leads": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "nextval('leads_id_seq'::regclass)"
+        },
+        {
+            "name": "first_name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "middle_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "last_name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "phone",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "plan_name",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "price",
+            "type": "real",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "verified_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "CURRENT_TIMESTAMP"
+        },
+        {
+            "name": "country_code",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "public.linkedin_jobs": [
+        {
+            "name": "id",
+            "type": "bigint",
+            "nullable": "NO",
+            "default": "nextval('linkedin_jobs_id_seq'::regclass)"
+        },
+        {
+            "name": "job_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "title",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_logo",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_city",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_state",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_country",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "location_display",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "description",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "date_posted",
+            "type": "date",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "scraped_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "job_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "apply_url",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_type",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_level",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "company_industry",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "job_function",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "is_remote",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "is_easy_apply",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "false"
+        },
+        {
+            "name": "compensation_min",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "compensation_max",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "compensation_currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "compensation_interval",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "emails",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "search_keyword",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "experience",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "salary_text",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        }
+    ],
+    "public.scraper_progress_repo1": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "1"
+        },
+        {
+            "name": "last_index",
+            "type": "integer",
+            "nullable": "YES",
+            "default": "0"
+        }
+    ],
+    "public.scraper_progress_repo2": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "1"
+        },
+        {
+            "name": "last_index",
+            "type": "integer",
+            "nullable": "YES",
+            "default": "0"
+        }
+    ],
+    "public.users": [
+        {
+            "name": "id",
+            "type": "integer",
+            "nullable": "NO",
+            "default": "nextval('users_id_seq'::regclass)"
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "password_hash",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "CURRENT_TIMESTAMP"
+        }
+    ],
+    "public.transactions": [
+        {
+            "name": "id",
+            "type": "uuid",
+            "nullable": "NO",
+            "default": "gen_random_uuid()"
+        },
+        {
+            "name": "order_id",
+            "type": "text",
+            "nullable": "NO",
+            "default": null
+        },
+        {
+            "name": "email",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "phone_number",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "first_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "middle_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "last_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "plan_name",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "amount",
+            "type": "numeric",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "currency",
+            "type": "text",
+            "nullable": "YES",
+            "default": "'USD'::text"
+        },
+        {
+            "name": "status",
+            "type": "text",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "terms_accepted",
+            "type": "boolean",
+            "nullable": "YES",
+            "default": "true"
+        },
+        {
+            "name": "paypal_details",
+            "type": "jsonb",
+            "nullable": "YES",
+            "default": null
+        },
+        {
+            "name": "created_at",
+            "type": "timestamp with time zone",
+            "nullable": "YES",
+            "default": "now()"
+        },
+        {
+            "name": "access_status",
+            "type": "text",
+            "nullable": "YES",
+            "default": "'active'::text"
+        }
+    ]
+}

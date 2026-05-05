@@ -1,0 +1,5 @@
+users columns: ['id', 'created_at', 'email', 'password_hash']
+leads columns: ['price', 'verified_at', 'id', 'last_name', 'email', 'phone', 'plan_name', 'country_code', 'first_name', 'middle_name']
+dice_jobs columns: ['salary_min', 'salary_max', 'scraped_at', 'is_remote', 'id', 'location_city', 'location_state', 'location_country', 'job_type', 'employment_type', 'w2_c2c_type', 'date_posted', 'salary', 'salary_interval', 'experience', 'job_url_dice', 'job_url_external', 'skills', 'description', 'work_location', 'job_id', 'title', 'company', 'company_image_url']
+transactions columns: ['amount', 'terms_accepted', 'paypal_details', 'created_at', 'id', 'middle_name', 'last_name', 'plan_name', 'currency', 'status', 'access_status', 'order_id', 'email', 'phone_number', 'first_name']
+jobs columns: ['id', 'scraped_at', 'platform', 'job_title', 'location', 'job_link', 'external_link', 'description', 'salary', 'experience', 'h1b', 'company']

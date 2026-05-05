@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   DESIGN TOKENS — CSS Custom Properties
+   Light mode defaults on :root, dark mode overrides on .dark
+   ============================================================ */
+
+:root {
+  /* Accent colors — Light Mode Defaults (Green) */
+  --color-primary: #089F25;
+  --color-primary-hover: #06891F;
+  --color-primary-subtle: #D1FAE5;
+  --color-primary-foreground: #ffffff;
+
+  /* Light mode surfaces */
+  --color-bg: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F3F4F6;
+  --color-border: #E5E7EB;
+  --color-border-subtle: #F3F4F6;
+
+  /* Light mode text */
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6B7280;
+  --color-text-inverse: #FFFFFF;
+}
+
+/* ============================================================
+   DARK MODE SURFACES (Invariant — not changed by accent)
+   ============================================================ */
+.dark {
+  --color-bg: #09090F;
+  --color-surface: #111118;
+  --color-surface-2: #1A1A24;
+  --color-border: #2A2A3A;
+  --color-border-subtle: #1F1F2C;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #CBD5E1;
+  --color-text-muted: #94A3B8;
+  --color-text-inverse: #09090F;
+
+  /* Accent colors — Dark Mode Defaults (Yellow) */
+  --color-primary: #EEBA2C;
+  --color-primary-hover: #D4A017;
+  --color-primary-subtle: rgba(238, 186, 44, 0.12);
+  --color-primary-foreground: #09090F;
+}
+
+/* ============================================================
+   LIGHT MODE ACCENT OVERRIDES
+   ============================================================ */
+/* Green (default - no class needed, but for explicit use) */
+.accent-green {
+  --color-primary: #089F25;
+  --color-primary-hover: #06891F;
+  --color-primary-subtle: #D1FAE5;
+  --color-primary-foreground: #ffffff;
+}
+
+.accent-blue {
+  --color-primary: #2563EB;
+  --color-primary-hover: #1D4ED8;
+  --color-primary-subtle: #DBEAFE;
+  --color-primary-foreground: #ffffff;
+}
+
+.accent-pink {
+  --color-primary: #EC4899;
+  --color-primary-hover: #DB2777;
+  --color-primary-subtle: #FCE7F3;
+  --color-primary-foreground: #ffffff;
+}
+
+.accent-purple {
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-primary-subtle: #EDE9FE;
+  --color-primary-foreground: #ffffff;
+}
+
+.accent-orange {
+  --color-primary: #EA580C;
+  --color-primary-hover: #C2410C;
+  --color-primary-subtle: #FFEDD5;
+  --color-primary-foreground: #ffffff;
+}
+
+/* ============================================================
+   DARK MODE ACCENT OVERRIDES
+   ============================================================ */
+.dark.accent-yellow {
+  --color-primary: #EEBA2C;
+  --color-primary-hover: #D4A017;
+  --color-primary-subtle: rgba(238, 186, 44, 0.12);
+  --color-primary-foreground: #09090F;
+}
+
+.dark.accent-cyan {
+  --color-primary: #06B6D4;
+  --color-primary-hover: #0891B2;
+  --color-primary-subtle: rgba(6, 182, 212, 0.12);
+  --color-primary-foreground: #09090F;
+}
+
+.dark.accent-purple {
+  --color-primary: #A855F7;
+  --color-primary-hover: #9333EA;
+  --color-primary-subtle: rgba(168, 85, 247, 0.12);
+  --color-primary-foreground: #09090F;
+}
+
+.dark.accent-orange {
+  --color-primary: #F97316;
+  --color-primary-hover: #EA580C;
+  --color-primary-subtle: rgba(249, 115, 22, 0.12);
+  --color-primary-foreground: #09090F;
+}
+
+.dark.accent-green {
+  --color-primary: #22C55E;
+  --color-primary-hover: #16A34A;
+  --color-primary-subtle: rgba(34, 197, 94, 0.12);
+  --color-primary-foreground: #09090F;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-body;
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  /* Focus visible — accessible keyboard ring */
+  *:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Scrollbar — subtle */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+/* ============================================================
+   COMPONENT UTILITIES
+   ============================================================ */
+@layer components {
+
+  /* Card base */
+  .card {
+    @apply rounded-xl border;
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    transition: box-shadow 150ms ease, transform 150ms ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 20px 0 rgb(0 0 0 / 0.10);
+    transform: translateY(-1px);
+  }
+
+  .dark .card:hover {
+    box-shadow: 0 6px 24px 0 rgb(0 0 0 / 0.5);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-150 min-h-touch;
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    color: var(--color-primary-foreground);
+    box-shadow: 0 4px 12px 0 color-mix(in srgb, var(--color-primary) 40%, transparent);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-150 min-h-touch border;
+    background-color: var(--color-surface-2);
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-border);
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-150 min-h-touch border;
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary-subtle);
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-150 min-h-touch;
+    background-color: transparent;
+    color: var(--color-text-secondary);
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--color-surface-2);
+    color: var(--color-text-primary);
+  }
+
+  /* Input base */
+  .input {
+    @apply w-full rounded-lg border px-4 py-2.5 text-sm transition-all duration-150 outline-none min-h-touch;
+    background-color: var(--color-surface-2) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text-primary) !important;
+  }
+
+  .input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .input:focus {
+    border-color: var(--color-primary) !important;
+    background-color: var(--color-surface) !important;
+    box-shadow: 0 0 0 3px var(--color-primary-subtle);
+  }
+
+  .dark .input {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #F8FAFC !important;
+  }
+
+  .dark .input:focus {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--color-primary) !important;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-primary {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary);
+  }
+
+  .badge-success {
+    @apply bg-success-subtle text-success;
+  }
+
+  .badge-warning {
+    @apply bg-warning-subtle text-warning;
+  }
+
+  .badge-error {
+    @apply bg-error-subtle text-error;
+  }
+
+  /* Sidebar nav item */
+  .nav-item {
+    @apply w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-left text-sm font-medium transition-all duration-150 min-h-touch;
+    color: var(--color-text-muted);
+  }
+
+  .nav-item:hover {
+    background-color: var(--color-surface-2);
+    color: var(--color-text-primary);
+  }
+
+  .nav-item.active {
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  /* Section header */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest;
+    color: var(--color-text-muted);
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply rounded-lg animate-pulse;
+    background-color: var(--color-surface-2);
+  }
+
+  .dark .skeleton {
+    background-color: var(--color-border);
+  }
+
+  /* Divider */
+  .divider {
+    @apply my-4;
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* Toast */
+  .toast {
+    @apply rounded-xl px-4 py-3 text-sm font-medium shadow-lg flex items-center gap-3;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+  }
+}
+
+/* ============================================================
+   UTILITY ANIMATIONS
+   ============================================================ */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 200ms ease forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 200ms ease forwards;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 200ms ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Transition for theme switch */
+  .theme-transition {
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  /* Safe area for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+
+  /* 
+   ============================================================
+   GLOWING TRAVELING BORDER ANIMATION 
+   ============================================================
+  */
+
+  .glow-border-container {
+    position: relative;
+    border-radius: 1.5rem 0 0 1.5rem;
+    overflow: hidden;
+    padding: 2px;
+    box-shadow: 0 0 10px 4px color-mix(in srgb, var(--color-primary) 50%, transparent),
+      0 0 40px 8px color-mix(in srgb, var(--color-primary) 25%, transparent);
+    transition: box-shadow 300ms ease;
+  }
+
+  /* Inner wrapper — bright white sweep */
+  .glow-border-container::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent 30%);
+    animation: rotate-border 3s linear infinite;
+    z-index: 0;
+  }
+
+  /* The visible glowing colored border trace */
+  .glow-border-container::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: conic-gradient(transparent,
+        var(--color-primary),
+        transparent 25%);
+    animation: rotate-border 3s linear infinite;
+    z-index: 0;
+    filter: blur(12px);
+    opacity: 1;
+  }
+
+  /* Ensures the inner content stays above the animated border */
+  .glow-border-content {
+    position: relative;
+    z-index: 1;
+    border-radius: calc(1.5rem - 2px) 0 0 calc(1.5rem - 2px);
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-surface);
+    /* Keep the background color matching the container */
+  }
+
+  @keyframes rotate-border {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-premium-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .animate-premium-glow::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+
+  @keyframes shine {
+    0% {
+      transform: translateX(-100%) rotate(45deg);
+    }
+
+    20%,
+    100% {
+      transform: translateX(100%) rotate(45deg);
+    }
+  }
+}

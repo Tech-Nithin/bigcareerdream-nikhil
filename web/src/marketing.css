@@ -1,0 +1,528 @@
+/* ===========================
+   NextHire JOBS — PREMIUM JOB BOARD
+   Design: Rich Blue Gradient System
+   =========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ─── DESIGN TOKENS ─────────────────────────────── */
+:root {
+  /* CLASSIC LUXURY SYSTEM (Dark Mode) */
+  --ink-900: #FBF6EE;
+  /* Light Ink */
+  --ink-800: #EDE8E0;
+  --ink-700: #D4B896;
+
+  --coral-600: #FF6B40;
+  /* Burnt Coral/Orange */
+  --coral-500: #E8451A;
+  --coral-100: rgba(232, 69, 26, 0.1);
+
+  --sand-500: #D4B896;
+  /* Muted Sand */
+  --sand-300: #E8D8C3;
+  --sand-100: #1A1208;
+
+  --cream-100: #0A0A0A;
+  /* Soft Black */
+  --cream-200: #111111;
+
+  /* Backgrounds */
+  --bg-white: #000000;
+  --bg-off: #0A0A0A;
+  --bg-subtle: #111111;
+  --bg-section: #000000;
+  --bg-dark-hero: #000000;
+
+  /* Accents */
+  --accent-primary: var(--coral-600);
+  --accent-secondary: var(--sand-500);
+
+  /* Text */
+  --text-heading: #FBF6EE;
+  --text-body: #ffffff;
+  --text-muted: #ffffff;
+  --text-faint: #4A4035;
+
+  /* Borders */
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-mid: rgba(255, 255, 255, 0.15);
+  --border-card: rgba(212, 184, 150, 0.15);
+
+  /* Glow */
+  --glow-primary: 0 0 40px rgba(255, 107, 64, 0.2);
+  --glow-sand: 0 0 30px rgba(212, 184, 150, 0.15);
+
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 12px 24px -4px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 20px 40px -8px rgba(0, 0, 0, 0.8);
+  --shadow-hover: 0 32px 64px -12px rgba(0, 0, 0, 0.9);
+
+  /* Sizing */
+  --h1-size: 4.8rem;
+  --h2-size: 3.2rem;
+  --h3-size: 1.8rem;
+  --section-pad: 110px 6%;
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  /* Fonts */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+@media (max-width: 1180px) {
+  :root {
+    --h1-size: 3.6rem;
+    --h2-size: 2.6rem;
+    --section-pad: 80px 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --h1-size: 2.6rem;
+    --h2-size: 2rem;
+    --section-pad: 60px 5%;
+  }
+}
+
+/* ─── RESET ─────────────────────────────────────── */
+/* Scoped explicitly for the marketing page */
+.marketing-page {
+  position: relative !important;
+  font-family: var(--font-body);
+  background: var(--bg-white);
+  color: var(--text-body);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Fix for Framer Motion + Lenis conflict */
+html, body {
+  scroll-behavior: auto !important;
+}
+
+/* Ensure all sections and main containers have a non-static position for animation offset calculations */
+.marketing-page main,
+.marketing-page section,
+.marketing-page .section,
+.marketing-page div[key] {
+   position: relative !important;
+}
+
+.marketing-page a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.marketing-page button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+}
+
+.marketing-page img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ─── TYPOGRAPHY ─────────────────────────────────── */
+.marketing-page h1,
+.marketing-page h2,
+.marketing-page h3,
+.marketing-page h4,
+.marketing-page h5,
+.marketing-page h6 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  color: var(--text-heading);
+  line-height: 1.15;
+}
+
+.marketing-page h1 {
+  font-size: var(--h1-size);
+}
+
+.marketing-page h2 {
+  font-size: var(--h2-size);
+}
+
+.marketing-page h3 {
+  font-size: var(--h3-size);
+}
+
+/* ─── GRADIENT TEXT ─────────────────────────────── */
+.blue-text {
+  background: linear-gradient(135deg, #1D4ED8 0%, #3B82F6 60%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── UTILITY ────────────────────────────────────── */
+.marketing-page .container {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+
+.marketing-page .section-pad {
+  padding: var(--section-pad);
+}
+
+.marketing-page .glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+/* ─── BUTTONS ────────────────────────────────────── */
+.marketing-page .btn-primary {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  color: #FFFFFF;
+  padding: 13px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.marketing-page .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.marketing-page .btn-primary:hover::before {
+  left: 100%;
+}
+
+.marketing-page .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.marketing-page .btn-secondary {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--blue-600);
+  padding: 13px 28px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1.5px solid rgba(37, 99, 235, 0.3);
+  transition: all 0.28s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.marketing-page .btn-secondary:hover {
+  background: var(--blue-50);
+  border-color: var(--blue-600);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ─── SECTION BADGE ──────────────────────────────── */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.06) 100%);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 50px;
+  color: var(--blue-600);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  font-family: var(--font-sans);
+}
+
+.section-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563EB, #06B6D4);
+  display: inline-block;
+}
+
+/* ─── CARD BASE ──────────────────────────────────── */
+.premium-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.premium-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(37, 99, 235, 0.15);
+}
+
+/* ─── SECTION DIVIDERS / DECORATIONS ────────────── */
+.gradient-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(37, 99, 235, 0.2) 25%, rgba(6, 182, 212, 0.25) 50%, rgba(37, 99, 235, 0.2) 75%, transparent 100%);
+}
+
+/* ─── MARQUEE ANIMATIONS ─────────────────────────── */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes marqueeSlow {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  animation: marqueeLeft 28s linear infinite;
+  width: max-content;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  animation: marqueeRight 32s linear infinite;
+  width: max-content;
+}
+
+.marquee-track-slow {
+  display: flex;
+  animation: marqueeSlow 44s linear infinite;
+  width: max-content;
+}
+
+/* ─── GLOW ORBS ──────────────────────────────────── */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+/* ─── SECTION HEADER DECORATION ─────────────────── */
+.section-tag-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.section-tag-line::before,
+.section-tag-line::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  max-width: 60px;
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.4));
+}
+
+.section-tag-line::after {
+  background: linear-gradient(270deg, transparent, rgba(37, 99, 235, 0.4));
+}
+
+/* ─── PILL BTN ───────────────────────────────────── */
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  /* Premium Glassmorphism */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: default;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pill-btn:hover {
+  border-color: var(--blue-600);
+  color: var(--blue-600);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ─── STAT COUNTER ───────────────────────────────── */
+.stat-item {
+  text-align: center;
+  padding: 24px 32px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+}
+
+/* ─── KEYFRAMES ──────────────────────────────────── */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0F4FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BFDBFE;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-600);
+}
+
+/* ─── PRICING CARD ───────────────────────────────── */
+.pricing-card {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+}
+
+/* ─── FEATURE ICON GLOW ──────────────────────────── */
+.icon-box-glow:hover {
+  box-shadow: var(--glow-blue);
+}
+
+/* ─── WHATSAPP STICKY BUTTON ─────────────────────── */
+.whatsapp-sticky {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  background: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 20px rgba(37, 211, 102, 0.3);
+  cursor: pointer;
+  border: 4px solid white;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-sticky:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25), 0 0 30px rgba(37, 211, 102, 0.5);
+  transform: translateY(-5px);
+}
+
+.whatsapp-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-sticky {
+    bottom: 20px;
+    right: 20px;
+    width: 54px;
+    height: 54px;
+    border-width: 3px;
+  }
+}

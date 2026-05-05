@@ -1,0 +1,24 @@
+# Ignore node modules everywhere
+**/node_modules/
+
+# Ignore build folders
+**/dist/
+**/build/
+
+# Ignore environment files
+**/.env
+
+# Ignore mac junk files
+.DS_Store
+__MACOSX/
+
+# Logs
+npm-debug.log*
+
+# Scratch files
+**/scratch/
+
+# Python
+**/__pycache__/
+**/*.pyc
+**/venv/
