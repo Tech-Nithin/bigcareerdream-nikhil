@@ -7,10 +7,14 @@ from app.db.session import get_db
 router = APIRouter()
 
 async def get_count(db: AsyncSession, table: str, condition: str = "") -> int:
-    query = text(f"SELECT COUNT(*) as count FROM {table} {condition}")
-    result = await db.execute(query)
-    row = result.mappings().first()
-    return row['count'] if row else 0
+    try:
+        query = text(f"SELECT COUNT(*) as count FROM {table} {condition}")
+        result = await db.execute(query)
+        row = result.mappings().first()
+        return row['count'] if row else 0
+    except Exception as e:
+        print(f"⚠️ Table count failed for {table}: {e}")
+        return 0
 
 @router.get("/dashboard")
 async def get_dashboard_stats(db: AsyncSession = Depends(get_db)):
@@ -19,7 +23,7 @@ async def get_dashboard_stats(db: AsyncSession = Depends(get_db)):
         # Get counts from various tables
         job_count = await get_count(db, "dice_job_links")
         client_count = await get_count(db, "clients")
-        lead_count = await get_count(db, "leads_information")
+        lead_count = await get_count(db, "leads")
         active_client_count = await get_count(db, "clients", "WHERE is_active = TRUE")
         
         return {

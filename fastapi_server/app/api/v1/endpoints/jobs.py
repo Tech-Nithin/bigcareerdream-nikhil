@@ -57,6 +57,7 @@ async def job_redirect(
     # Dice
     table_queries.append({"table": "dice_jobs", "id_col": "job_id", "val": job_id})
     if is_numeric: table_queries.append({"table": "dice_jobs", "id_col": "id", "val": val_numeric})
+    table_queries.append({"table": "dice_job_links", "id_col": "job_id", "val": job_id})
     # LinkedIn
     table_queries.append({"table": "linkedin_jobs", "id_col": "job_id", "val": job_id})
     if is_numeric: table_queries.append({"table": "linkedin_jobs", "id_col": "id", "val": val_numeric})
@@ -143,7 +144,7 @@ async def get_dice_jobs(
         count_cache_key = f"dice_count:{search}"
         total_count = cache.get(count_cache_key)
         if total_count is None:
-            count_q = text(f"SELECT COUNT(*) FROM dice_jobs{where_clause}")
+            count_q = text(f"SELECT COUNT(*) FROM dice_job_links{where_clause}")
             count_result = await db.execute(count_q, {k: v for k, v in params.items() if k not in ('limit', 'offset')})
             total_count = count_result.scalar() or 0
             cache.set(count_cache_key, total_count, ttl=60)
@@ -151,13 +152,13 @@ async def get_dice_jobs(
         # 4. Fetch ONLY this page's rows from DB — true on-demand
         data_query = text(f"""
             SELECT
-                id, job_id, title, company, company_image_url,
+                job_id AS id, job_id, title, company, company_image_url,
                 location_city, location_state, location_country,
                 (location_city || ', ' || location_state || ', ' || location_country) AS location_display,
                 is_remote, work_location, employment_type,
                 date_posted, salary, salary_min, salary_max, salary_interval,
-                experience, skills, description, job_url_dice AS job_url, job_url_external
-            FROM dice_jobs
+                experience, skills, description, job_url, job_url_external
+            FROM dice_job_links
             {where_clause}
             ORDER BY date_posted DESC
             LIMIT :limit OFFSET :offset
@@ -366,7 +367,7 @@ async def get_staffing_agency_jobs(
 async def get_all_jobs_json(db: AsyncSession = Depends(get_db)):
     """Generic endpoint for all jobs in JSON format."""
     try:
-        query = text("SELECT * FROM dice_jobs ORDER BY date_posted DESC LIMIT 100")
+        query = text("SELECT * FROM dice_job_links ORDER BY date_posted DESC LIMIT 100")
         result = await db.execute(query)
         rows = result.mappings().all()
         return {"success": True, "data": [dict(row) for row in rows]}
@@ -390,6 +391,7 @@ async def get_job_details(job_id: str, client_id: Optional[str] = None, db: Asyn
     tables = [
         {"name": "dice_jobs", "id_col": "id"},
         {"name": "dice_jobs", "id_col": "job_id"},
+        {"name": "dice_job_links", "id_col": "job_id"},
         {"name": "linkedin_jobs", "id_col": "id"},
         {"name": "linkedin_jobs", "id_col": "job_id"},
         {"name": "greenhouse_lever_jobs", "id_col": "id"},
